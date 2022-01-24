@@ -27,8 +27,8 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-    - name: create zip file
-      run: tar cfzh /tmp/artifact.tar ./
+      - name: create zip file
+        run: tar cfzh /tmp/artifact.tar ./
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -49,8 +49,8 @@ jobs:
         with:
           name: node-app
 
-    - name: unzip 
-      run: tar xvf artifact.tar && rm artifact.tar
+      - name: unzip 
+        run: tar xvf artifact.tar && rm artifact.tar
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
